@@ -1,2 +1,2 @@
 # Maggie Chen
-![This is an image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fthxmbrd_%2Fwe-bare-bears%2F&psig=AOvVaw3QIaWJfNLFGmfy_JRkE-wc&ust=1666751554175000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZs8Sr-voCFQAAAAAdAAAAABAE)
+![This is an image](https://i.pinimg.com/550x/c0/6f/9c/c06f9c8fb5b6884c7b8870309398addd.jpg)

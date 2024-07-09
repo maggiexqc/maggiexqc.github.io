@@ -1,0 +1,60 @@
+html {
+    height: 100%; /* Set the height of the html element to 100% */
+    overflow-y: scroll; /* Always show vertical scrollbar on html */
+}
+body {
+    font-family: "Roboto";
+    color: #F5F5F5;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    overflow-y: auto; /* Use auto for body to allow scrollbar as needed */
+}
+.homepage {
+    background-color: #F1F1FC;  /* White background */
+    color: #333;  /* Darker text for better contrast on light background */
+}
+/* slide up transition */
+.content {
+    transition: transform 0.2s ease;
+    position: relative;
+    min-height: 100vh;
+}
+.slide-up {
+    transform: translateY(-100vh); /* Slide up the entire viewport height */
+}
+
+/* App cards */
+.app-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust based on how many columns you want */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Individual app cards styling */
+.app-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black; /* Text color */
+}
+
+.app-card img {
+    width: 60px; /* Icon size */
+    height: 60px;
+    margin-bottom: 8px;
+}
+
+.app-card span {
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Hover effects for interaction */
+.app-card:hover {
+    transform: scale(1.1); /* Slightly enlarge icons on hover */
+    transition: transform 0.3s;
+}

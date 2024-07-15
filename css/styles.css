@@ -1,9 +1,24 @@
+@font-face { 
+    font-family: 'MyFont'; 
+    src: url('../img/oldfont.otf') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal; 
+} 
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
 html {
     height: 100%; /* Set the height of the html element to 100% */
     overflow-y: scroll; /* Always show vertical scrollbar on html */
 }
 body {
-    font-family: "Roboto";
+    font-family: 'MyFont', sans-serif;
     color: #F5F5F5;
     background-color: #121212;
     margin: 0;
@@ -12,8 +27,24 @@ body {
     overflow-y: auto; /* Use auto for body to allow scrollbar as needed */
 }
 .homepage {
-    background-color: #F1F1FC;  /* White background */
-    color: #333;  /* Darker text for better contrast on light background */
+    background-color: #F1F1FC; 
+    color: #333;  
+}
+h1 {
+    padding-left: 20px;
+}
+.blinking-underscore {
+    animation: blink 1s step-end infinite;
+}
+
+/* 3d model container */
+#container3D {
+    margin: 0;
+    margin-top: -40px;
+    padding: 0;
+    height: 800px; 
+    display: block;
+    overflow: hidden; /* Prevents any overflow from the 3D content */
 }
 /* slide up transition */
 .content {
@@ -39,12 +70,12 @@ body {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: black; /* Text color */
+    color: black; 
 }
 
 .app-card img {
-    width: 60px; /* Icon size */
-    height: 60px;
+    width: 80px; 
+    height: 80px;
     margin-bottom: 8px;
 }
 

@@ -105,12 +105,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         lastScrollTop = currentScroll;
     });
-
-    // window.addEventListener('click', function() {
-    //     content.classList.add('slide-up');
-    //     setTimeout(() => {
-    //         window.location.href = 'home.html'; 
-    //     }, 500); 
-    // });
 });
 

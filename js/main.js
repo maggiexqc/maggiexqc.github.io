@@ -73,6 +73,22 @@ let bobSpeed = 0.03;
 let bobHeight = 1; 
 let bobTime = 0; 
 
+// Set up resizing for renderer and camera
+function onWindowResize() {
+  // Update renderer size
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // Update camera aspect ratio
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  // Render the scene again
+  renderer.render(scene, camera);
+}
+
+// Add an event listener for window resize
+window.addEventListener('resize', onWindowResize, false);
+
 // Animation loop
 function animate() {
     requestAnimationFrame(animate);

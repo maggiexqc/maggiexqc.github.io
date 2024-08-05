@@ -26,6 +26,18 @@ body {
     line-height: 1.8;
     overflow-y: auto; 
 }
+/* index page */
+body.content {
+    background-image: url(../img/website.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    transition: transform 0.2s ease;
+    position: relative;
+    min-height: 100vh;
+    background-position: center;
+}
 h1 {
     margin: 15px 10px 20px 20px;
 }
@@ -72,17 +84,17 @@ button:active {
     margin: 0;
     margin-top: -40px;
     padding: 0;
-    height: 800px; 
+    height: 80vh; 
     display: block;
     overflow: hidden;
-}
-/* slide up transition */
-.content {
-    transition: transform 0.2s ease;
-    position: relative;
     min-height: 100vh;
-    background-color: #b6cade;
 }
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 .slide-up {
     transform: translateY(-100vh); /* Slide up the entire viewport height */
 }

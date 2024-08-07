@@ -20,7 +20,7 @@ html {
 body {
     font-family: 'MyFont', sans-serif;
     color: #f7f7f7;
-    background-color: #9ab1cd;
+    background-color: #a9bdd6;
     margin: 0;
     padding: 0;
     line-height: 1.8;
@@ -55,6 +55,16 @@ p {
     margin: 10px 300px 0px 20px;
     font-size: 20px;
 }
+.top-bar {
+    background: linear-gradient(to bottom, #5c76ad, #9fb5d1);
+    width: 100%;
+    height: 100vh; 
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+}
+
 button {
     font-family: 'MyFont', sans-serif;
     background-color: transparent;

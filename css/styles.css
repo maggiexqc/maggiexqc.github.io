@@ -20,7 +20,7 @@ html {
 body {
     font-family: 'MyFont', sans-serif;
     color: #f7f7f7;
-    background-color: #b6cade;
+    background-color: #9ab1cd;
     margin: 0;
     padding: 0;
     line-height: 1.8;
@@ -37,6 +37,7 @@ body.content {
     position: relative;
     min-height: 100vh;
     background-position: center;
+    font-size: 19px;
 }
 h1 {
     margin: 15px 10px 20px 20px;

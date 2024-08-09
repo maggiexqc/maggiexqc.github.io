@@ -20,11 +20,12 @@ html {
 body {
     font-family: 'MyFont', sans-serif;
     color: #f7f7f7;
-    background-color: #a9bdd6;
+    background-color: #9fb5d1;
     margin: 0;
     padding: 0;
     line-height: 1.8;
-    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch;
+    min-height: 100vh;
 }
 /* index page */
 body.content {
@@ -107,7 +108,8 @@ canvas {
 }
 
 .slide-up {
-    transform: translateY(-100vh); /* Slide up the entire viewport height */
+    transform: translateY(-100vh); 
+    transition: transform 0.5s ease-in-out;
 }
 
 /* App cards */

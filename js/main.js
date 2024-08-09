@@ -107,19 +107,42 @@ animate();
 
 // Change page into home.html if user scrolls down or clicks on the page
 document.addEventListener('DOMContentLoaded', function() {
-    let lastScrollTop = 0;
-    let content = document.querySelector('.content');
+  let lastScrollTop = 0;
+  const threshold = 30; // Threshold for determining significant scroll
 
-    window.addEventListener('scroll', function() {
-        let currentScroll = window.scrollY;
-        // Check if user scrolled down
-        if (currentScroll > lastScrollTop) {
-            content.classList.add('slide-up');
-            setTimeout(() => {
-                window.location.href = 'home.html'; 
-            }, 200); 
-        }
-        lastScrollTop = currentScroll;
-    });
+  // Scroll event for desktop users
+  window.addEventListener('scroll', function() {
+      let currentScroll = window.scrollY;
+
+      // Check if user scrolled down
+      if (currentScroll > lastScrollTop) {
+          document.querySelector('.content').classList.add('slide-up');
+          setTimeout(() => {
+              window.location.href = 'home.html'; 
+          }, 200); 
+      }
+
+      lastScrollTop = currentScroll;
+  }, { passive: true });
+
+  // Touch start event to detect initial touch point for mobile
+  window.addEventListener('touchstart', function(event) {
+      lastScrollTop = window.scrollY;
+  });
+
+  // Touch move event to detect scrolling on mobile
+  window.addEventListener('touchmove', function(event) {
+      let currentTouchY = event.touches[0].clientY;
+      let deltaY = lastTouchY - currentTouchY;
+
+      // Check if the user scrolls down significantly
+      if (deltaY > threshold) {
+          document.querySelector('.content').classList.add('slide-up');
+          setTimeout(() => {
+              window.location.href = 'home.html'; 
+          }, 200);
+      }
+
+      lastTouchY = currentTouchY;
+  }, { passive: true });
 });
-

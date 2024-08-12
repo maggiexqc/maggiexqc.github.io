@@ -42,15 +42,13 @@ body.content {
 @media only screen and (max-width: 480px) {
     body.content {
         font-size: 16px; /* Adjust font size for smaller screens */
-        /* Add any additional styles for very small screens here */
     }
 }
 h1 {
     margin: 15px 10px 20px 20px;
 }
-h1.app-name {
-    margin: 15px 10px 0px 20px;
-    font-size: 50px;
+h2 {
+    margin: 10px 20px 0px 20px;
 }
 h3 {
     margin: 0px 10px 0px 20px;
@@ -58,8 +56,25 @@ h3 {
     font-style: italic;
 }
 p {
-    margin: 10px 300px 0px 20px;
-    font-size: 20px;
+    margin: 10px 350px 0px 40px;
+    font-size: 22px;
+}
+.footer {
+    position: fixed;         /* Fixes the footer at the bottom of the viewport */
+    bottom: 0;               /* Aligns the footer at the bottom */
+    width: 100%;             /* Ensures the footer spans the full width */
+    text-align: center;      /* Centers the text */
+    background-color: #627bb1; /* Optional: Adds a background color for visibility */
+    color: #f7f7f7;          /* Text color */
+    padding: 10px 0;         /* Padding for spacing */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for separation */
+    z-index: 1000;           
+}
+
+.footer h3 {
+    margin: 0;               
+    font-size: 20px;        
+    font-style: italic;      
 }
 .top-bar {
     background: linear-gradient(to bottom, #5c76ad, #9fb5d1);
@@ -156,4 +171,36 @@ canvas {
 .app-card:hover {
     transform: scale(1.1); 
     transition: transform 0.3s;
+}
+.app-page {
+    display: flex;                
+    justify-content: flex-start;    
+    align-items: flex-end; 
+}
+.app-page img {
+    width: 200px;                  
+    height: 200px;                 
+    object-fit: contain;           
+    margin: 10px 10px 0 10px;         
+}
+.app-context {
+    display: flex;                 
+    flex-direction: column;      
+    justify-content: flex-end;
+}
+
+.app-context h1,
+.app-context h3 {
+    margin: 0 0 20px 0;    
+    line-height: 1;             
+}
+
+.app-context h1 {
+    font-size: 60px;              
+    white-space: nowrap;         
+}
+
+.app-context h3 {
+    font-size: 20px;             
+    font-style: italic;           
 }

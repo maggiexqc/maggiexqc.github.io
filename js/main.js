@@ -55,12 +55,25 @@ loader.load(
   }
 );
 
+// Function to check if the device is mobile
+function isMobileDevice() {
+  return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+}
+
 // rotate the object manually
 let controls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = false; // Disable zoom if not needed
 controls.enablePan = false;  // Disable panning
 controls.autoRotate = false; // Disable automatic orbiting
 controls.enableRotate = true; // Ensure rotation is enabled
+
+// Disable rotation on mobile
+if (isMobileDevice()) {
+  controls.enableRotate = false; // Disable rotation for mobile devices
+} else {
+  controls.enableRotate = true; // Enable rotation for non-mobile devices
+}
+
 controls.minPolarAngle = Math.PI / 2; // object does not move vertically
 controls.maxPolarAngle = Math.PI / 2; 
 
@@ -105,10 +118,11 @@ function animate() {
 }
 animate();
 
-// Change page into home.html if user scrolls down or clicks on the page
+// Change page into home.html if user scrolls down or swipes up
 document.addEventListener('DOMContentLoaded', function() {
   let lastScrollTop = 0;
-  const threshold = 30; // Threshold for determining significant scroll
+  const threshold = 10;
+  let lastTouchY = 0;
 
   // Scroll event for desktop users
   window.addEventListener('scroll', function() {
@@ -125,24 +139,24 @@ document.addEventListener('DOMContentLoaded', function() {
       lastScrollTop = currentScroll;
   }, { passive: true });
 
-  // Touch start event to detect initial touch point for mobile
-  window.addEventListener('touchstart', function(event) {
-      lastScrollTop = window.scrollY;
-  });
+  // // Touch start event to detect initial touch point for mobile
+  // window.addEventListener('touchstart', function(event) {
+  //     lastScrollTop = window.scrollY;
+  // });
 
-  // Touch move event to detect scrolling on mobile
-  window.addEventListener('touchmove', function(event) {
-      let currentTouchY = event.touches[0].clientY;
-      let deltaY = lastTouchY - currentTouchY;
+  // // Touch move event to detect scrolling on mobile
+  // window.addEventListener('touchmove', function(event) {
+  //     let currentTouchY = event.touches[0].clientY;
+  //     let deltaY = lastTouchY - currentTouchY;
 
-      // Check if the user scrolls down significantly
-      if (deltaY > threshold) {
-          document.querySelector('.content').classList.add('slide-up');
-          setTimeout(() => {
-              window.location.href = 'home.html'; 
-          }, 200);
-      }
+  //     // Check if the user scrolls down significantly
+  //     if (deltaY > threshold) {
+  //         document.querySelector('.content').classList.add('slide-up');
+  //         setTimeout(() => {
+  //             window.location.href = 'home.html'; 
+  //         }, 200);
+  //     }
 
-      lastTouchY = currentTouchY;
-  }, { passive: true });
+  //     lastTouchY = currentTouchY;
+  // }, { passive: true });
 });

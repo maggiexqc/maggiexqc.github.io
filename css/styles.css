@@ -33,12 +33,17 @@ body.content {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-size: 100% 100%;
     transition: transform 0.2s ease;
     position: relative;
     min-height: 100vh;
     background-position: center;
     font-size: 19px;
+}
+@media only screen and (max-width: 480px) {
+    body.content {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        /* Add any additional styles for very small screens here */
+    }
 }
 h1 {
     margin: 15px 10px 20px 20px;
@@ -133,7 +138,7 @@ canvas {
     width: 70px; 
     height: 70px;
     margin-bottom: 8px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.1s ease-in-out;
 }
 
 .app-card img.enlarge {

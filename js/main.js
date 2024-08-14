@@ -123,40 +123,52 @@ document.addEventListener('DOMContentLoaded', function() {
   let lastScrollTop = 0;
   const threshold = 10;
   let lastTouchY = 0;
+  let isTouchInside3DContainer = false;
+
+  const container3D = document.getElementById('container3D');
 
   // Scroll event for desktop users
   window.addEventListener('scroll', function() {
-      let currentScroll = window.scrollY;
+    let currentScroll = window.scrollY;
 
-      // Check if user scrolled down
-      if (currentScroll > lastScrollTop) {
+    // Check if user scrolled down
+    if (currentScroll > lastScrollTop) {
+        document.querySelector('.content').classList.add('slide-up');
+        setTimeout(() => {
+            window.location.href = 'home.html'; 
+        }, 200); 
+    }
+
+    lastScrollTop = currentScroll;
+}, { passive: true });
+
+  // Touch start event to detect initial touch point for mobile
+  container3D.addEventListener('touchstart', function(event) {
+      lastScrollTop = window.scrollY;
+      lastTouchY = event.touches[0].clientY;
+      isTouchInside3DContainer = true;
+  });
+
+  // Touch move event to detect scrolling on mobile within the 3D container
+  container3D.addEventListener('touchmove', function(event) {
+      if (!isTouchInside3DContainer) return;
+
+      let currentTouchY = event.touches[0].clientY;
+      let deltaY = lastTouchY - currentTouchY;
+
+      // Check if the user scrolls down significantly
+      if (deltaY > threshold) {
           document.querySelector('.content').classList.add('slide-up');
           setTimeout(() => {
-              window.location.href = 'home.html'; 
-          }, 200); 
+              window.location.href = 'home.html';
+          }, 200);
       }
 
-      lastScrollTop = currentScroll;
+      lastTouchY = currentTouchY;
   }, { passive: true });
 
-  // // Touch start event to detect initial touch point for mobile
-  // window.addEventListener('touchstart', function(event) {
-  //     lastScrollTop = window.scrollY;
-  // });
-
-  // // Touch move event to detect scrolling on mobile
-  // window.addEventListener('touchmove', function(event) {
-  //     let currentTouchY = event.touches[0].clientY;
-  //     let deltaY = lastTouchY - currentTouchY;
-
-  //     // Check if the user scrolls down significantly
-  //     if (deltaY > threshold) {
-  //         document.querySelector('.content').classList.add('slide-up');
-  //         setTimeout(() => {
-  //             window.location.href = 'home.html'; 
-  //         }, 200);
-  //     }
-
-  //     lastTouchY = currentTouchY;
-  // }, { passive: true });
+  // Reset isTouchInside3DContainer on touchend
+  container3D.addEventListener('touchend', function(event) {
+      isTouchInside3DContainer = false;
+  });
 });

@@ -39,16 +39,12 @@ body.content {
     background-position: center;
     font-size: 19px;
 }
-@media only screen and (max-width: 480px) {
-    body.content {
-        font-size: 16px; /* Adjust font size for smaller screens */
-    }
-}
+
 h1 {
     margin: 15px 10px 20px 20px;
 }
 h2 {
-    margin: 10px 20px 0px 20px;
+    margin: 10px 20px 0px 30px;
 }
 h3 {
     margin: 0px 10px 0px 20px;
@@ -56,18 +52,70 @@ h3 {
     font-style: italic;
 }
 p {
-    margin: 10px 350px 0px 40px;
+    margin: 10px 100px 0px 50px;
     font-size: 22px;
 }
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    p {
+        margin: 10px 20px;
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        margin: 10px 15px;
+        font-size: 22px;
+    }
+    h3 {
+        margin: 10px 15px;
+        font-size: 18px;
+    }
+    .app-page img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    p {
+        margin: 10px 20px;
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 30px !important;
+    }
+    h2 {
+        margin: 10px 10px;
+        font-size: 20px;
+    }
+    h3 {
+        margin: 10px 10px;
+        font-size: 16px;
+    }
+    .app-page img {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    .top-bar {
+        height: auto;
+        padding: 20px;
+    }
+    body.content {
+        font-size: 16px; 
+    }
+}
+
 .footer {
-    position: fixed;         /* Fixes the footer at the bottom of the viewport */
-    bottom: 0;               /* Aligns the footer at the bottom */
-    width: 100%;             /* Ensures the footer spans the full width */
-    text-align: center;      /* Centers the text */
-    background-color: #627bb1; /* Optional: Adds a background color for visibility */
-    color: #f7f7f7;          /* Text color */
-    padding: 10px 0;         /* Padding for spacing */
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for separation */
+    position: fixed;         
+    bottom: 0;             
+    width: 100%;             
+    text-align: center;     
+    background-color: #627bb1;
+    color: #f7f7f7;     
+    padding: 10px 0;      
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); 
     z-index: 1000;           
 }
 
@@ -190,7 +238,8 @@ canvas {
 }
 
 .app-context h1,
-.app-context h3 {
+.app-context h3,
+.about-context h1 {
     margin: 0 0 20px 0;    
     line-height: 1;             
 }
@@ -203,4 +252,9 @@ canvas {
 .app-context h3 {
     font-size: 20px;             
     font-style: italic;           
+}
+
+.about-context h1 {
+    font-size: 40px;              
+    white-space: nowrap;         
 }

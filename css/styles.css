@@ -228,8 +228,8 @@ canvas {
 .app-page img {
     width: 200px;                  
     height: 200px;                 
-    object-fit: contain;           
-    margin: 10px 10px 0 10px;         
+    object-fit: cover;           
+    margin: 10px 10px 0 10px;    
 }
 .app-context {
     display: flex;                 
@@ -253,7 +253,13 @@ canvas {
     font-size: 20px;             
     font-style: italic;           
 }
-
+.aboutpage img {
+    width: 200px;                  
+    height: 200px;                 
+    object-fit: cover;           
+    margin: 10px 10px 0 10px;  
+    border-radius: 30px;  
+}
 .about-context h1 {
     font-size: 40px;              
     white-space: nowrap;         
